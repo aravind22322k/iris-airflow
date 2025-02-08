@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 # AWS Configuration
-S3_BUCKET_NAME = "your-s3-bucket-name"  # Change this to your actual bucket name
+S3_BUCKET_NAME = "iris-airflow-bucket"  # Change this to your actual bucket name
 AWS_REGION = "us-east-1"  # Change if your bucket is in a different region
 
 # Ensure necessary directories exist
