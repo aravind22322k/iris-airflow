@@ -51,8 +51,8 @@ def upload_to_s3(file_path, bucket_name, s3_key):
         print(f"Error uploading {file_path} to S3: {e}")
 
 # Upload files to S3
-upload_to_s3(train_file_path, S3_BUCKET_NAME, "iris_data/iris_train.csv")
-upload_to_s3(test_file_path, S3_BUCKET_NAME, "iris_data/iris_test.csv")
-upload_to_s3(model_file_path, S3_BUCKET_NAME, "iris_model/iris_model.joblib")
+upload_to_s3(train_file_path, S3_BUCKET_NAME, "data/iris_train.csv")
+upload_to_s3(test_file_path, S3_BUCKET_NAME, "data/iris_test.csv")
+upload_to_s3(model_file_path, S3_BUCKET_NAME, "model/iris_model.joblib")
 
 print("All files successfully uploaded to S3!")
