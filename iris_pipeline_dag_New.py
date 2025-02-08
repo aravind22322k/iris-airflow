@@ -1,4 +1,3 @@
-m_
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
@@ -9,7 +8,7 @@ import subprocess
 # AWS configurations
 S3_BUCKET = "iris-airflow-bucket"
 MODEL_ARTIFACT = "iris_model.tar.gz"
-ROLE_ARN = "arn:aws:iam::605134428434:role/SageMakerRole"  # Replace with your SageMaker role ARN
+ROLE_ARN = "arn:aws:iam::863518422262:role/SageMakerExecutionRole"  # Replace with your SageMaker role ARN
 REGION = "us-east-1"
 
 def prepare_data():
@@ -20,9 +19,9 @@ def train_model():
     client = boto3.client("sagemaker", region_name=REGION)
 
     training_job_name = "iris-training-job"
-    training_image = "605134428434.dkr.ecr.us-east-1.amazonaws.com/ecr-iris-repo1:latest"
-    input_data_s3 = f"s3://iris-airflow-bucket/iris_train.csv/"
-    output_data_s3 = f"s3://iris-airflow-bucket/iris-output/"
+    training_image = "863518422262.dkr.ecr.us-east-1.amazonaws.com/ecr-iris-repo1:latest"
+    input_data_s3 = f"s3://iris-airflow-bucket/data/iris_train.csv/"
+    output_data_s3 = f"s3://iris-airflow-bucket/data/iris-output/"
 
     response = client.create_training_job(
         TrainingJobName=training_job_name,
